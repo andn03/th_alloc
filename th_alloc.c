@@ -276,7 +276,7 @@ void free(void *ptr) {
       levels[lev].next = now->next;
       levels[lev].free_objects = levels[lev].free_objects - now->free_count;
       levels[lev].whole_superblocks--;
-      munmap(now, SUPER_BLOCK_SIZE);
+      munmap(now, SUPER_BLOCK_SIZE);    //for freeing "wholes"
     }
     //if it isn't it loops until it finds a whole superblock and unmaps it
     else{
